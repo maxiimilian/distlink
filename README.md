@@ -6,7 +6,7 @@ Please refer to [the authors' README file](distlink-2.0/README.txt) for more inf
 The original code is published [here](https://sourceforge.net/projects/distlink/).
 
 ## Dependencies
-The C++ library needs to be compiled for your OS and your architecture. Therfore, you need to be
+The C++ library needs to be compiled for your OS and your architecture. Therefore, you need to be
 able to compile Python extensions. That generally requires
 * g++ compiler (**not** clang if you are using macOS)
 * installed Python C headers and development libraries (e.g. Ubuntu `sudo apt-get install python3-dev`)
@@ -19,12 +19,13 @@ able to compile Python extensions. That generally requires
 * Run `make clean` to remove temporary build files
 
 ## Usage
+**Important!** All angles must be given in radian!
 ```python
 from distlink import COrbitData, MOID_fast
 
-# Create two orbits
-o1 = COrbitData(7149.23810, 0.01951, 98.34212, 163.46357, 40.32555)
-o2 = COrbitData(7254.82582, 0.02770, 98.10792, 523.30395-360, 10.76767)
+# Create two orbits (angles in radian!)
+o1 = COrbitData(7149.23810, 0.01951, 1.7164, 2.853, 0.7038)
+o2 = COrbitData(7254.82582, 0.02770, 1.7123, 2.85, 0.188)
 
 # Compute MOID between two orbits.
 dist = MOID_fast(o1, o2, 2e-15, 1e-15)

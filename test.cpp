@@ -3,8 +3,8 @@
 
 int main(){
     // Define two orbits
-    COrbitData o1 = COrbitData(7149.23810, 0.01951, 98.34212, 163.46357, 40.32555);
-    COrbitData o2 = COrbitData(7254.82582, 0.02770, 98.10792, 523.30395-360, 10.76767);
+    COrbitData o1 = COrbitData(7149.23810, 0.01951, 1.7164, 2.853, 0.7038);
+    COrbitData o2 = COrbitData(7254.82582, 0.02770, 1.7123, 2.85, 0.188);
 
     // Change min mutal inclination value
     SMOIDResult res = MOID_fast(o1, o2, 1e-10, 1e-10);
