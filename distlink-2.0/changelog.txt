@@ -1,0 +1,5 @@
+V1.0: Initial release.
+
+V1.1: Stable release; improved speed and numeric stability.
+
+V2.0: Support for hyperbolic orbits (just pass e>1 to either MOID_fast or MOID_direct_search). Parabolic orbits not supported yet.
