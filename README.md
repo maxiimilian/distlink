@@ -27,7 +27,7 @@ o1 = COrbitData(7149.23810, 0.01951, 98.34212, 163.46357, 40.32555)
 o2 = COrbitData(7254.82582, 0.02770, 98.10792, 523.30395-360, 10.76767)
 
 # Compute MOID between two orbits.
-dist = MOID_fast(o1, o2, 1e-15, 1e-15)
+dist = MOID_fast(o1, o2, 2e-15, 1e-15)
 ```
 `dist` is a `SMOIDResult` object with the following main attributes:
 * `distance` and `distance_error`: Computed MOID between orbits and respective error
