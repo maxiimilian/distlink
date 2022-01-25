@@ -6,6 +6,39 @@
 #include "distlink.h"
 %}
 
+// Convert Python list of integers to unsigned integer array
+/*
+%typemap(in) const unsigned int[] {
+  // Check if is a list
+  if (PyList_Check($input)) {
+    int size = PyList_Size($input);
+    unsigned int[size] int_list;
+
+    int i = 0;
+    for(i = 0; i < size; i++){
+      if(i < 0) {
+        PyErr_SetString(PyExc_TypeError, "Integers in list need to be positive.");
+        SWIG_fail;
+      }
+      // Get i-th item from Python list
+      PyObject *o = PyList_GetItem($input, i);
+      if(PyInt_Check(o)) {
+        int_list[i] = PyInt_AsLong(o);
+      } else {
+        free(int_list);
+        PyErr_SetString(PyExc_TypeError, "List has to contain integers only.");
+        SWIG_fail;
+      }
+    }
+  } else {
+    PyErr_SetString(PyExc_TypeError, "Not a list.");
+    SWIG_fail;
+  }
+
+  $1 = int_list;
+}
+*/
+
 // function detect_suitable_options
 template<typename realfp>
 void detect_suitable_options(realfp& max_root_error,
